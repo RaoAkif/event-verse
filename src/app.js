@@ -11,7 +11,7 @@ app.use(express.json());
 
 // Basic route for testing
 app.get('/', (req, res) => {
-    res.send('QuickMeet API is running!');
+    res.send('QuickMeet API is running!!!');
 });
 
 module.exports = app;
