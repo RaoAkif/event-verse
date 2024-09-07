@@ -6,6 +6,13 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
   },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageDirectory": "./coverage",
+    "testMatch": [
+      "**/__tests__/**/*.test.js"
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
