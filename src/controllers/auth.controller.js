@@ -1,8 +1,9 @@
-const User = require('../models/user.model');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const User = require('../models/user.model');
+require('dotenv').config();
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const { JWT_SECRET } = process.env;
 
 exports.register = async (req, res) => {
   const { email, password, role } = req.body;
@@ -27,6 +28,7 @@ exports.login = async (req, res) => {
     return res.status(400).json({ message: 'Invalid credentials' });
   }
 
+  // Make sure JWT_SECRET is being passed
   const token = jwt.sign({ id: user._id, role: user.role }, JWT_SECRET, { expiresIn: '1h' });
   res.json({ token });
 };
