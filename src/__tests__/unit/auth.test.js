@@ -7,9 +7,10 @@ const User = require('@models/user.model');
 const { JWT_SECRET } = process.env;
 
 // Mock database connection
-beforeAll(async () => {
-  await mongoose.connect(process.env.MONGO_URI);
-});
+
+mongoose.connect(process.env.MONGO_URI)
+.then(() => console.log('MongoDB connected'))
+.catch((err) => console.log('MongoDB connection error:', err));
 
 // Cleanup database after each test
 afterEach(async () => {
