@@ -1,9 +1,11 @@
 const app = require('./app');
+const connectDB = require('./config/database');
 
-// Define the port from environment or fallback to 5000
+// Connect to MongoDB
+connectDB();
+
 const PORT = process.env.PORT || 5000;
 
-// Start the server
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });
