@@ -1,17 +1,18 @@
+require('module-alias/register');
+
 const express = require('express');
 const dotenv = require('dotenv');
+const authRoutes = require('./routes/auth.routes');
 
-// Initialize environment variables
 dotenv.config();
-
 const app = express();
 
-// Middleware
 app.use(express.json());
 
-// Basic route for testing
+app.use('/auth', authRoutes);
+
 app.get('/', (req, res) => {
-    res.send('QuickMeet API is running!!!');
+    res.send('QuickMeet API is running!');
 });
 
 module.exports = app;
